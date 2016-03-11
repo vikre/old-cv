@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack -d --watch",
-    "build" : "webpack -p",
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vikre",
@@ -18,5 +18,9 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
   }
 }
