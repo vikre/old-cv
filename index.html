@@ -30,59 +30,6 @@
 			{title:'Coaching course in alpine skiing', description:'Coaching level 1- and 2 in alpine skiing', extra:'', url:'http://www.skiforbundet.no/alpint/fagogutdanning/trenerkurs/Sider/Kurs.aspx', from:'2006', to:'2009'}
 		]
 		</script>
-		<script>
-	
-		var cv = window.cv || {education:education,work:work,other:other,course:course,qualificaitons:{raw:'',items:[]}}
-		plug_info(cv)
-
-		function plug_info(o) {
-			var work = document.getElementById('work')
-			,education = document.getElementById('education')
-			, other = document.getElementById('other')
-			, course = document.getElementById('course')
-
-			fill_section(education, 'Education', o.education)
-			fill_section(work, 'Work experience', o.work)
-			fill_section(other, 'Other Experience', o.other)
-			fill_section(course,'Courses', o.course)
-		}
-
-		function fill_section(section, title, data) {
-			sectioncontent = document.createElement('div')
-			sectioncontent.setAttribute('class', 'sectionContent')
-			list = document.createElement('div')
-			list.setAttribute('class', 'sectionTitle')
-			list.appendChild(add_title(title))
-			clear = document.createElement('div')
-			clear.setAttribute('class', 'clear')
-
-			for (i = 0; i < data.length; i++) {
-				var li = document.createElement('article')
-				, head = document.createElement('h2')
-				, span = document.createElement('p')
-				, description = document.createElement('p')
-
-				head.innerHTML = data[i]['title']
-				span.setAttribute('class', 'subDetails')
-				date = data[i]['to'] ? data[i]['from']+' - '+data[i]['to'] : data[i]['from']
-				span.innerHTML = date
-				//url.setAttribute('href', data[i]['url'])
-				//url.innerHTML = '<h2>'+data[i]['title']+'</h2>'
-				extra = data[i]['extra'] //? ',  </br>'+ data[i]['extra'] : ''
-				desc = '<h3>'+data[i]['description'] + '</h3>'
-				description.innerHTML = desc + extra
- 			li.appendChild(head), li.appendChild(span), li.appendChild(description), sectioncontent.appendChild(li)
-			}
-			section.appendChild(list), section.appendChild(sectioncontent), section.appendChild(clear)
-		}
-
-		function add_title(text) {
-			var title = document.createElement('h1')
-			title.innerHTML = text
-			return title
-		}
-		
-		</script>
 		<link type="text/css" rel="stylesheet" href="style.css">
 	</head>
 
@@ -152,5 +99,58 @@
 				<div class="last"></div>
 			</div>
 		</div>
+		<script>
+	
+		var cv = window.cv || {education:education,work:work,other:other,course:course,qualificaitons:{raw:'',items:[]}}
+		plug_info(cv)
+
+		function plug_info(o) {
+			var work = document.getElementById('work')
+			,education = document.getElementById('education')
+			, other = document.getElementById('other')
+			, course = document.getElementById('course')
+
+			fill_section(education, 'Education', o.education)
+			fill_section(work, 'Work experience', o.work)
+			fill_section(other, 'Other Experience', o.other)
+			fill_section(course,'Courses', o.course)
+		}
+
+		function fill_section(section, title, data) {
+			sectioncontent = document.createElement('div')
+			sectioncontent.setAttribute('class', 'sectionContent')
+			list = document.createElement('div')
+			list.setAttribute('class', 'sectionTitle')
+			list.appendChild(add_title(title))
+			clear = document.createElement('div')
+			clear.setAttribute('class', 'clear')
+
+			for (i = 0; i < data.length; i++) {
+				var li = document.createElement('article')
+				, head = document.createElement('h2')
+				, span = document.createElement('p')
+				, description = document.createElement('p')
+
+				head.innerHTML = data[i]['title']
+				span.setAttribute('class', 'subDetails')
+				date = data[i]['to'] ? data[i]['from']+' - '+data[i]['to'] : data[i]['from']
+				span.innerHTML = date
+				//url.setAttribute('href', data[i]['url'])
+				//url.innerHTML = '<h2>'+data[i]['title']+'</h2>'
+				extra = data[i]['extra'] //? ',  </br>'+ data[i]['extra'] : ''
+				desc = '<h3>'+data[i]['description'] + '</h3>'
+				description.innerHTML = desc + extra
+ 			li.appendChild(head), li.appendChild(span), li.appendChild(description), sectioncontent.appendChild(li)
+			}
+			section.appendChild(list), section.appendChild(sectioncontent), section.appendChild(clear)
+		}
+
+		function add_title(text) {
+			var title = document.createElement('h1')
+			title.innerHTML = text
+			return title
+		}
+		
+		</script>
 	</body>
 </html>
