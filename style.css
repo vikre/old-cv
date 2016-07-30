@@ -16,7 +16,7 @@ html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-ser
 .clear {clear: both;}
 
 p {
-	font-size: 1em;
+	font-size: 0.9em;
 	line-height: 1.4em;
 	margin-bottom: 20px;
 	color: #444;
@@ -131,11 +131,11 @@ section:last-child {
 
 .sectionContent h2 {
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-size: 1.8em;
+	font-size: 1.5em;
 	margin-bottom: -2px;
 }
 .sectionContent h3 {
-  font-size: 1.1em;
+  font-size: 1.0em;
   margin-bottom: 4px;
   margin-top: 8px;
   font-style: italic;
@@ -162,15 +162,15 @@ section:last-child {
 	margin-bottom: 3px;
   list-style-type: none;
 }
-.column-left{ float: left; width: 33%; }
-.column-right{ float: right; width: 33%; }
-.column-center{ display: inline-block; width: 33%; }
+.column-left{ float: left; width: 33%;}
+.column-right{ float: right; width: 30%; margin-left: 5px;}
+.column-center{ display: inline-block; width: 30%; margin-left: 5px;}
 li {
   list-style: none;
   margin-bottom: 2px;
 }
 h4 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 4px;
@@ -194,7 +194,7 @@ h4 {
 
 @media all and (max-width: 601px) {
 	#cv {
-		width: 95%;
+		width: 96%;
 		margin: 10px auto;
 		min-width: 280px;
 	}
@@ -208,6 +208,9 @@ h4 {
 		width: 100%;
 		text-align: center;
 	}
+	#contactDetails table {
+		margin-left: 25%;
+	}
 
 	.sectionTitle, .sectionContent {
 		float: none;
@@ -216,7 +219,7 @@ h4 {
 
 	.sectionTitle {
 		margin-left: -2px;
-		font-size: 1.25em;
+		font-size: 1.2em;
 	}
 
 	.keySkills {
@@ -254,8 +257,11 @@ h4 {
 
 @media print {
     #cv {
-        width: 100%;
+        width: 95%;
     }
+		#contactDetails table {
+			margin-left: 37%;
+		}
 }
 
 @-webkit-keyframes reset {
