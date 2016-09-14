@@ -29,6 +29,57 @@
 		, course = [
 			{title:'Coaching course in alpine skiing', description:'Coaching level 1- and 2 in alpine skiing', extra:'', url:'http://www.skiforbundet.no/alpint/fagogutdanning/trenerkurs/Sider/Kurs.aspx', from:'2006', to:'2009'}
 		]
+
+var cv = window.cv || {education:education,work:work,other:other,course:course,qualificaitons:{raw:'',items:[]}}
+		plug_info(cv)
+
+		function plug_info(o) {
+			var work = document.getElementById('work')
+			,education = document.getElementById('education')
+			, other = document.getElementById('other')
+			, course = document.getElementById('course')
+
+			fill_section(education, 'Education', o.education)
+			fill_section(work, 'Work experience', o.work)
+			fill_section(other, 'Other Experience', o.other)
+			fill_section(course,'Courses', o.course)
+		}
+
+		function fill_section(section, title, data) {
+			sectioncontent = document.createElement('div')
+			sectioncontent.setAttribute('class', 'sectionContent')
+			list = document.createElement('div')
+			list.setAttribute('class', 'sectionTitle')
+			list.appendChild(add_title(title))
+			clear = document.createElement('div')
+			clear.setAttribute('class', 'clear')
+
+			for (i = 0; i < data.length; i++) {
+				var li = document.createElement('article')
+				, head = document.createElement('h2')
+				, span = document.createElement('p')
+				, description = document.createElement('p')
+
+				head.innerHTML = data[i]['title']
+				span.setAttribute('class', 'subDetails')
+				date = data[i]['to'] ? data[i]['from']+' - '+data[i]['to'] : data[i]['from']
+				span.innerHTML = date
+				//url.setAttribute('href', data[i]['url'])
+				//url.innerHTML = '<h2>'+data[i]['title']+'</h2>'
+				extra = data[i]['extra'] //? ',  </br>'+ data[i]['extra'] : ''
+				desc = '<h3>'+data[i]['description'] + '</h3>'
+				description.innerHTML = desc + extra
+ 			li.appendChild(head), li.appendChild(span), li.appendChild(description), sectioncontent.appendChild(li)
+			}
+			section.appendChild(list), section.appendChild(sectioncontent), section.appendChild(clear)
+		}
+
+		function add_title(text) {
+			var title = document.createElement('h1')
+			title.innerHTML = text
+			return title
+		}
+
 		</script>
 
 	</head>
@@ -99,79 +150,5 @@
 				<div class="last"></div>
 			</div>
 		</div>
-		<script>
-var education = [
-			{title:'Norwegian University of Science and Technology', description:'Master in Computer Science', extra: 'Master thesis: Online News Detection on Twitter', url:'http://ntnu.no/', from:'2010', to:'2015'}
-			//,{title:'Norwegian University of Science and Technology', description:'Bachelor in Computer Science', url:'http://ntnu.no/', from:'2010', to:'2013'}
-			, {title:'Dønski Upper secondary school', description:'Alpine skiing', extra:'',url:'http://www.donski.vgs.no/', from:2006, to:2009}
-		]
-		, work = [
-			 {title:'Knowit', description:'Software developer - Developer', extra: 'Maintain and develop new features for the Norwegian Rail Roads (NSB) sales- and ticket system.', url:'http://www.knowit.no/', from:'2015', to:'now'}
-			,{title:'Knowit', description:'Summer intern - Developer', extra:'Helped develop an administration web app for configuring tickets, trips and so on for the Norwegian Rail Road (NSB)', url:'http://www.knowit.no/', from:'2014', to:'2014'}
-			,{title:'ODIN Forvalting AS', description:'Summer intern - Developer and daily system operation ', extra:'', url:'http://www.odinfond.no/', from:'2011', to:'2014'}
-		//	, {title:'XXL', description:'Sommerjobb som selger i ski –og sykkel avdelingen, XXL avd. Majorstuen', url:'http://xxl.no/', from:'2010'}
-		]
-		, other = [
-				{title:'Online', description:'Head', extra:'Worked closely with the rest of the team to organize and run the organization. Also had the responsibility for HES (Health Environmental Safety)',url:'http://online.ntnu.no/', from:'2014', to:'2015'}
-			, {title:'Online', description:'Member of the academic and courses commitee',extra:'Arranging courses and workshops for the informatics students at the Norwegian University of Science and Technology', url:'http://online.ntnu.no/', from:'2012', to:'2015'}
-			, {title:'Online', description:'Deputy head',extra: 'Worked closely with the rest of the team to organize and run the organization. Mostly communication and representation', url:'http://online.ntnu.no/', from:'2013', to:'2014'}
-			, {title:'Online', description:'Head of the academic and courses commitee',extra: 'Managing the team working with arranging courses and workshops for the informatics students at the Norwegian University of Science and Technology', url:'http://online.ntnu.no/', from:'2012', to:'2013'}
-			, {title:'Datakameratene FK', description:'Manager for Datakameratene FK', extra:'Computer Science soccer team for girls', url:'http://www.datakameratene.com/', from:'2012', to:'2013'}
-		]
-		, course = [
-			{title:'Coaching course in alpine skiing', description:'Coaching level 1- and 2 in alpine skiing', extra:'', url:'http://www.skiforbundet.no/alpint/fagogutdanning/trenerkurs/Sider/Kurs.aspx', from:'2006', to:'2009'}
-		]
-	
-		var cv = window.cv || {education:education,work:work,other:other,course:course,qualificaitons:{raw:'',items:[]}}
-		plug_info(cv)
-
-		function plug_info(o) {
-			var work = document.getElementById('work')
-			,education = document.getElementById('education')
-			, other = document.getElementById('other')
-			, course = document.getElementById('course')
-
-			fill_section(education, 'Education', o.education)
-			fill_section(work, 'Work experience', o.work)
-			fill_section(other, 'Other Experience', o.other)
-			fill_section(course,'Courses', o.course)
-		}
-
-		function fill_section(section, title, data) {
-			sectioncontent = document.createElement('div')
-			sectioncontent.setAttribute('class', 'sectionContent')
-			list = document.createElement('div')
-			list.setAttribute('class', 'sectionTitle')
-			list.appendChild(add_title(title))
-			clear = document.createElement('div')
-			clear.setAttribute('class', 'clear')
-
-			for (i = 0; i < data.length; i++) {
-				var li = document.createElement('article')
-				, head = document.createElement('h2')
-				, span = document.createElement('p')
-				, description = document.createElement('p')
-
-				head.innerHTML = data[i]['title']
-				span.setAttribute('class', 'subDetails')
-				date = data[i]['to'] ? data[i]['from']+' - '+data[i]['to'] : data[i]['from']
-				span.innerHTML = date
-				//url.setAttribute('href', data[i]['url'])
-				//url.innerHTML = '<h2>'+data[i]['title']+'</h2>'
-				extra = data[i]['extra'] //? ',  </br>'+ data[i]['extra'] : ''
-				desc = '<h3>'+data[i]['description'] + '</h3>'
-				description.innerHTML = desc + extra
- 			li.appendChild(head), li.appendChild(span), li.appendChild(description), sectioncontent.appendChild(li)
-			}
-			section.appendChild(list), section.appendChild(sectioncontent), section.appendChild(clear)
-		}
-
-		function add_title(text) {
-			var title = document.createElement('h1')
-			title.innerHTML = text
-			return title
-		}
-		
-		</script>
 	</body>
 </html>
