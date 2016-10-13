@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300" rel="stylesheet" type="text/css">
 	<link type="text/css" rel="stylesheet" href="style.css">
 	<script type="text/javascript">
-	var education = [
+/*	var education = [
 		{title:'Norwegian University of Science and Technology', description:'Master in Computer Science', extra: 'Master thesis: Online News Detection on Twitter', url:'http://ntnu.no/', from:'2010', to:'2015'}
 		//,{title:'Norwegian University of Science and Technology', description:'Bachelor in Computer Science', url:'http://ntnu.no/', from:'2010', to:'2013'}
 		, {title:'Dønski Upper secondary school', description:'Alpine skiing', extra:'',url:'http://www.donski.vgs.no/', from:2006, to:2009}
@@ -28,7 +28,7 @@
 	]
 	, course = [
 		{title:'Coaching course in alpine skiing', description:'Coaching level 1- and 2 in alpine skiing', extra:'', url:'http://www.skiforbundet.no/alpint/fagogutdanning/trenerkurs/Sider/Kurs.aspx', from:'2006', to:'2009'}
-	]
+	]*/
 </script>
 
 </head>
@@ -40,7 +40,7 @@
 				<h1 class="quickFade delayTwo">Linn Vikre</h1>
 				<h2 class="quickFade delayThree">Software Developer</h2>
 			</div>
-			<div id="contactDetails" class="quickFade delayFour">
+			<div id="contactDetails" class="quickFade">
 				<ul>
 					<li><span>Address: </span> Hauger Skolevei 50, 1351 Rud</li>
 					<li><span>Date of Birth: </span> 24th of May, 1990</li>
@@ -100,8 +100,30 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+			var education = [
+				{title:'Norwegian University of Science and Technology', description:'Master in Computer Science', extra: 'Master thesis: Online News Detection on Twitter', url:'http://ntnu.no/', from:'2010', to:'2015'}
+				//,{title:'Norwegian University of Science and Technology', description:'Bachelor in Computer Science', url:'http://ntnu.no/', from:'2010', to:'2013'}
+				, {title:'Dønski Upper secondary school', description:'Alpine skiing', extra:'',url:'http://www.donski.vgs.no/', from:2006, to:2009}
+			]
+			, work = [
+				{title:'Knowit', description:'Software developer - Developer', extra: 'Maintain and develop new features for the Norwegian Rail Roads (NSB) sales- and ticket system.', url:'http://www.knowit.no/', from:'2015', to:'now'}
+				,{title:'Knowit', description:'Summer intern - Developer', extra:'Helped develop an administration web app for configuring tickets, trips and so on for the Norwegian Rail Road (NSB)', url:'http://www.knowit.no/', from:'2014', to:'2014'}
+				,{title:'ODIN Forvalting AS', description:'Summer intern - Developer and daily system operation ', extra:'', url:'http://www.odinfond.no/', from:'2011', to:'2014'}
+				//	, {title:'XXL', description:'Sommerjobb som selger i ski –og sykkel avdelingen, XXL avd. Majorstuen', url:'http://xxl.no/', from:'2010'}
+			]
+			, other = [
+				{title:'Online', description:'Head', extra:'Worked closely with the rest of the team to organize and run the organization. Also had the responsibility for HES (Health Environmental Safety)',url:'http://online.ntnu.no/', from:'2014', to:'2015'}
+				, {title:'Online', description:'Member of the academic and courses commitee',extra:'Arranging courses and workshops for the informatics students at the Norwegian University of Science and Technology', url:'http://online.ntnu.no/', from:'2012', to:'2015'}
+				, {title:'Online', description:'Deputy head',extra: 'Worked closely with the rest of the team to organize and run the organization. Mostly communication and representation', url:'http://online.ntnu.no/', from:'2013', to:'2014'}
+				, {title:'Online', description:'Head of the academic and courses commitee',extra: 'Managing the team working with arranging courses and workshops for the informatics students at the Norwegian University of Science and Technology', url:'http://online.ntnu.no/', from:'2012', to:'2013'}
+				, {title:'Datakameratene FK', description:'Manager for Datakameratene FK', extra:'Computer Science soccer team for girls', url:'http://www.datakameratene.com/', from:'2012', to:'2013'}
+			]
+			, course = [
+				{title:'Coaching course in alpine skiing', description:'Coaching level 1- and 2 in alpine skiing', extra:'', url:'http://www.skiforbundet.no/alpint/fagogutdanning/trenerkurs/Sider/Kurs.aspx', from:'2006', to:'2009'}
+			]
 
 			var cv = window.cv || {education:education,work:work,other:other,course:course,qualificaitons:{raw:'',items:[]}}
+
 			plug_info(cv)
 
 			function plug_info(o) {
